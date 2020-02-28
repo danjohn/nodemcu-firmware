@@ -4,6 +4,8 @@
 | 2015-02-06 | [Vladimir Dronnikov](https://github.com/dvv) | [Vladimir Dronnikov](https://github.com/dvv) | [redis.lua](../../lua_modules/redis/redis.lua) |
 
 This Lua module provides a simple implementation of a [Redis](https://redis.io/) client.
+For all who ask: 'Redis' is a server instance of helping in: caching, redestibution, backuping, making things going. 
+Go and inform yourself... The LUA binding will help a lot, if you decide the core matches your needs.
 
 ### Require
 ```lua

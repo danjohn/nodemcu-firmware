@@ -27,6 +27,9 @@ If any sync operation fails (maybe the device is disconnected from the internet)
 
 #### Parameters
 - `server_ip` if non-`nil`, that server is used. If `nil`, then the last contacted server is used. If there is no previous server, then the pool ntp servers are used. If the anycast server was used, then the first responding server will be saved.
+
+!!! note Per default, `nodemcu.pool.ntp.org` will be used. This is fine for our project; if you plan a larger scaled project, please think on defining your very own ntp server(s)!
+
 - `server1`, `server2` these are either the ip address or dns name of one or more servers to try.
 - `callback` if provided it will be invoked on a successful synchronization, with four parameters: seconds, microseconds, server and info. Note that when the [rtctime](rtctime.md) module is available, there is no need to explicitly call [`rtctime.set()`](rtctime.md#rtctimeset) - this module takes care of doing so internally automatically, for best accuracy. The info parameter is a table of (semi) interesting values. These are described below.
 - `errcallback` failure callback with two parameters. The first is an integer describing the type of error. The module automatically performs a number of retries before giving up and reporting the error. The second is a string containing supplementary information (if any). Error codes:
@@ -64,6 +67,11 @@ sntp.sync("224.0.1.1",
   end
 )
 ```
+
+!!! attention `smtp.sync` will raise an exeption, if there's a sync attempt on the way already "(PANIC: sync in progress)"
+
+If you plan to call `smtp.sync` more than once (say, in boot code, and later in main code), keep in mind to do [protected](http://www.lua.org/manual/5.1/manual.html#pdf-pcall) calls!
+
 #### See also
 [`rtctime.set()`](rtctime.md#rtctimeset)
 

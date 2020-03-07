@@ -3,7 +3,7 @@
 | :----- | :-------------------- | :---------- | :------ |
 | 2014-12-22 | [Zeroday](https://github.com/funshine) | [PhoeniX](https://github.com/djphoenix) | [net.c](../../app/modules/net.c)|
 
-** TLS operations was moved to the [TLS](tls.md) module **
+** TLS operations was moved to the [TLS](tls.md) module. **
 
 ## Constants
 Constants to be used in other functions: `net.TCP`, `net.UDP`
